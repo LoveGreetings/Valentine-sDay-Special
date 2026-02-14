@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Love - For My Beautiful Wife</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Background Music (hidden, controlled by JS) -->
+    <audio id="bgMusic" src="Manamaganin sathiyam lyrical.mp3" preload="auto" loop style="display:none"></audio>
+    <!-- LOGIN PAGE -->
+    <div class="login-container" id="loginContainer">
+        <div class="hearts-background" id="heartsBackground"></div>
+        <div class="login-box">
+            <h1 class="login-title">💕 Happy Valentine's! 💕</h1>
+            <p class="login-subtitle">Enter to unlock my love...</p>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                <div class="error-message" id="errorMessage">Invalid credentials. Try again! 💔</div>
+            </form>
+        </div>
+    </div>
+
+    <!-- AFTER LOGIN PAGE -->
+    <div class="after-login-container" id="afterLoginContainer">
+        <button class="logout-btn" onclick="logout()">Logout</button>
+
+        <!-- NAVIGATION MENU -->
+        <div class="navbar">
+            <div class="navbar-content">
+                <h2 class="navbar-title">💕 My Love for You</h2>
+                <nav class="nav-menu">
+                    <button class="nav-btn active" onclick="showSection('home')" data-section="home">🏠 Home</button>
+                    <button class="nav-btn" onclick="showSection('memories')" data-section="memories">📸
+                        Memories</button>
+                    <button class="nav-btn" onclick="showSection('countdown')" data-section="countdown">⏱️
+                        Countdown</button>
+                    <button class="nav-btn" onclick="showSection('photos')" data-section="photos">📷 Photos</button>
+                    <button class="nav-btn" onclick="showSection('story')" data-section="story">📖 Story</button>
+                    <button class="nav-btn" onclick="showSection('games')" data-section="games">🎮 Games</button>
+                    <button class="nav-btn" onclick="showSection('messages')" data-section="messages">💌
+                        Messages</button>
+                </nav>
+            </div>
+        </div>
+
+        <div class="falling-hearts" id="fallingHeartsContainer"></div>
+
+        <div class="full-page-content">
+            <!-- HOME SECTION -->
+            <div class="section-content active" id="home-section">
+                <div class="love-message">
+                    <div class="anniversary-badge">💕 VALENTINE'S DAY 💕</div>
+                    <div class="heart-icon" style="animation: heartbeat 0.8s infinite;">💑</div>
+                    <h1 class="love-title glow-text anniversary-title">Happy 3 Years of Love!</h1>
+
+                    <!-- Anniversary Counter -->
+                    <div class="anniversary-counter">
+                        <p style="color: #e91e63; font-weight: bold; font-size: 1.1rem; margin-bottom: 10px;">We've Been
+                            Together:</p>
+                        <div class="counter-display">
+                            <div class="counter-item"><span id="years">3</span> Years</div>
+                            <div class="counter-item"><span id="months">0</span> Months</div>
+                            <div class="counter-item"><span id="days">0</span> Days</div>
+                        </div>
+                    </div>
+
+                    <p class="love-text">
+                        It's been the most amazing 3 years of my life loving you!
+                        You've made every single day magical, and I can't wait to spend forever with you.
+                    </p>
+
+                    <p class="special-message anniversary-quote">
+                        "Three years down, forever to go. You are my greatest love story, my beautiful wife, my
+                        soulmate, and my greatest adventure.
+                        Thank you for these incredible memories. Happy Valentine's Day to the love of my life! 💕💕"
+                    </p>
+
+                    <!-- TIMELINE -->
+                    <div class="timeline-container">
+                        <h3 style="color: #e91e63; margin-bottom: 20px;">Our Beautiful Journey 💕</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon">💑</div>
+                                <div class="timeline-text">We Met</div>
+                                <div class="timeline-subtext">Forever Changed</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">💕</div>
+                                <div class="timeline-text">We Loved</div>
+                                <div class="timeline-subtext">Heart Connected</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">💍</div>
+                                <div class="timeline-text">You Said Yes</div>
+                                <div class="timeline-subtext">Happiest Day</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">💒</div>
+                                <div class="timeline-text">We Ready to Married</div>
+                                <div class="timeline-subtext">Forever Started</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">🌟</div>
+                                <div class="timeline-text">Till Forever</div>
+                                <div class="timeline-subtext">Our Dream</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LOVE METER -->
+                    <div class="love-meter">
+                        <div class="meter-label">💕 My Love for You:</div>
+                        <div class="meter-bar">
+                            <div class="meter-fill"></div>
+                        </div>
+                        <div class="meter-label" style="margin-top: 10px; text-align: center;">100% - Infinite & Eternal
+                            ∞</div>
+                    </div>
+
+                    <!-- PHOTO CAROUSEL -->
+                    <div class="carousel-container">
+                        <div class="carousel" id="carousel">
+                            <div class="carousel-item active">👰</div>
+                            <div class="carousel-item">💍</div>
+                            <div class="carousel-item">💏</div>
+                            <div class="carousel-item">🌹</div>
+                            <div class="carousel-item">💕</div>
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-btn" onclick="prevCarousel()">❮</button>
+                            <span class="carousel-indicator"><span id="carouselCurrent">1</span> / 5</span>
+                            <button class="carousel-btn" onclick="nextCarousel()">❯</button>
+                        </div>
+                    </div>
+
+                    <!-- LOVE CALCULATOR -->
+                    <div class="love-calc-section">
+                        <h3 style="color: #e91e63; margin-bottom: 15px;">Our Love Compatibility 💕</h3>
+                        <input type="text" class="love-input" id="name1" placeholder="Your Name" maxlength="20">
+                        <input type="text" class="love-input" id="name2" placeholder="Her Name" maxlength="20">
+                        <button class="btn btn-primary" style="margin-top: 10px;" onclick="calculateLove()">Calculate
+                            Love %</button>
+                        <div id="loveResult"></div>
+                    </div>
+
+                    <div class="date-display anniversary-date">
+                        February 14, 2026 - Valentine's Day 💑
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="showGallery()">📸 Our Memories</button>
+                        <button class="btn btn-secondary" onclick="showSurprise()">🎁 A Surprise for You</button>
+                        <button class="btn btn-secondary" onclick="showLoveLetter()">💌 Love Letter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEMORIES SECTION -->
+            <div class="section-content" id="memories-section">
+                <div class="love-message">
+                    <h2 style="color: #e91e63; text-align: center; margin-bottom: 30px;">📸 Our Beautiful Memories</h2>
+
+                    <div class="romantic-section">
+                        <h3 style="color: #e91e63; margin-bottom: 15px;">💑 Our Journey Together</h3>
+                        <ul style="text-align: left; color: #333; font-size: 1rem; line-height: 2.2;">
+                            <li>💑 The day I met you - my life changed forever</li>
+                            <li>💍 The day I proposed - your yes made me the happiest man</li>
+                            <li>💒 Our wedding day - the most beautiful day of my life</li>
+                            <li>🌍 Every adventure we take together</li>
+                            <li>🌙 Every quiet moment by your side</li>
+                            <li>🎂 Every celebration of your birthday</li>
+                            <li>🏠 Building our dream home together</li>
+                            <li>😴 Waking up next to your beautiful face</li>
+                        </ul>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-primary" style="width: 100%;" onclick="showGallery()">📸 View
+                            Memories</button>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-secondary" style="width: 100%;" onclick="showLoveLetter()">💌 Read Love
+                            Letter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COUNTDOWN SECTION -->
+            <div class="section-content" id="countdown-section">
+                <div class="love-message">
+                    <h2 style="color: #e91e63; text-align: center; margin-bottom: 30px;">⏱️ Time Until Forever</h2>
+
+                    <div class="romantic-section">
+                        <h3 style="color: #e91e63; margin-bottom: 15px;">Next Special Moment</h3>
+                        <div class="countdown-timer" id="countdownTimer">
+                            <div class="countdown-item"><span id="countDays">0</span><span
+                                    class="countdown-label">Days</span></div>
+                            <div class="countdown-item"><span id="countHours">0</span><span
+                                    class="countdown-label">Hours</span></div>
+                            <div class="countdown-item"><span id="countMinutes">0</span><span
+                                    class="countdown-label">Minutes</span></div>
+                            <div class="countdown-item"><span id="countSeconds">0</span><span
+                                    class="countdown-label">Seconds</span></div>
+                        </div>
+                        <p style="text-align: center; color: #e91e63; margin-top: 10px; font-style: italic;">Until our
+                            next anniversary...</p>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-primary" style="width: 100%;" onclick="showSweetMessage()">💌 Get a Sweet
+                            Message</button>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-secondary" style="width: 100%;" onclick="startHeartsRain()">💕 Make
+                            Hearts Rain!</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHOTOS SECTION -->
+            <div class="section-content" id="photos-section">
+                <div class="love-message">
+                    <h2 style="color: #e91e63; text-align: center; margin-bottom: 30px;">📷 Photo Gallery Slideshow</h2>
+
+                    <div class="romantic-section">
+                        <div class="photo-slider">
+                            <div class="photo-slide active"
+                                style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <span style="font-size: 3rem;">👰</span>
+                            </div>
+                            <div class="photo-slide"
+                                style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <span style="font-size: 3rem;">💍</span>
+                            </div>
+                            <div class="photo-slide"
+                                style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                                <span style="font-size: 3rem;">💏</span>
+                            </div>
+                            <div class="photo-slide"
+                                style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                                <span style="font-size: 3rem;">🌹</span>
+                            </div>
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn" onclick="prevSlide()">❮ Previous</button>
+                            <button class="slider-btn" onclick="nextSlide()">Next ❯</button>
+                        </div>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-primary" style="width: 100%;" onclick="startRoseRain()">🌹 Make It Rain
+                            Roses!</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STORY SECTION -->
+            <div class="section-content" id="story-section">
+                <div class="love-message">
+                    <h2 style="color: #e91e63; text-align: center; margin-bottom: 30px;">💑 Our Love Story</h2>
+
+                    <div class="romantic-section">
+                        <div class="love-story-timeline">
+                            <div class="story-item">
+                                <div class="story-dot"></div>
+                                <div class="story-content">
+                                    <h4>Day 1: When We Met</h4>
+                                    <p>The moment you walked into my life, everything changed. My heart knew it had
+                                        found its home.</p>
+                                </div>
+                            </div>
+                            <div class="story-item">
+                                <div class="story-dot"></div>
+                                <div class="story-content">
+                                    <h4>First Date Magic</h4>
+                                    <p>Your smile made me believe in fairy tales. I knew I never wanted to let you go.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="story-item">
+                                <div class="story-dot"></div>
+                                <div class="story-content">
+                                    <h4>I Love You</h4>
+                                    <p>The three words that changed everything. My heart was completely and forever
+                                        yours.</p>
+                                </div>
+                            </div>
+                            <div class="story-item">
+                                <div class="story-dot"></div>
+                                <div class="story-content">
+                                    <h4>The Proposal</h4>
+                                    <p>Getting down on one knee was the easiest decision I ever made. Your "yes" made me
+                                        the happiest man.</p>
+                                </div>
+                            </div>
+                            <div class="story-item">
+                                <div class="story-dot"></div>
+                                <div class="story-content">
+                                    <h4>Our Wedding Day</h4>
+                                    <p>The most beautiful day of my life. Marrying you was a dream come true.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-primary" style="width: 100%;" onclick="show2YearsStory()">📖 Read Our 3
+                            Year Story</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAMES SECTION -->
+            <div class="section-content" id="games-section">
+                <div class="love-message">
+                    <h2 style="color: #e91e63; text-align: center; margin-bottom: 30px;">🎮 Games & Fun</h2>
+
+                    <div class="romantic-section">
+                        <h3 style="color: #e91e63; margin-bottom: 15px;">✨ Daily Romance ✨</h3>
+                        <div class="quote-carousel">
+                            <p class="romantic-quote" id="romanticQuote">"Every day with you is a gift."</p>
+                            <button class="quote-btn" onclick="nextQuote()">Next Quote 💕</button>
+                        </div>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-primary" style="width: 100%;" onclick="startLoveQuiz()">🎮 Love Quiz -
+                            Test Your Knowledge</button>
+                    </div>
+
+                    <div class="romantic-section">
+                        <h3 style="color: #e91e63; margin-bottom: 15px;">💑 Our Next Date Idea</h3>
+                        <div class="spinner-container">
+                            <div class="spinner" id="dateSpinner">
+                                <p id="spinnerText">Click to Spin!</p>
+                            </div>
+                            <button class="btn btn-secondary" style="margin-top: 15px; width: 100%;"
+                                onclick="spinDateIdea()">🎡 Spin the Wheel!</button>
+                        </div>
+                    </div>
+
+                    <!-- NEW GAMES SECTION -->
+                    <div class="romantic-section">
+                        <h3 style="color: #e91e63; margin-bottom: 15px;">🃏 Memory Match Game</h3>
+                        <div class="game-container" id="memoryGameContainer">
+                            <div class="memory-grid" id="memoryGrid"></div>
+                            <button class="btn btn-primary" style="margin-top: 15px; width: 100%;"
+                                onclick="startMemoryGame()">🔄 New Game</button>
+                        </div>
+                    </div>
+
+                    <div class="romantic-section">
+                        <h3 style="color: #e91e63; margin-bottom: 15px;">❌⭕ Tic-Tac-Toe (Love Edition)</h3>
+                        <div class="game-container" id="ticTacToeContainer">
+                            <div class="tic-tac-toe-grid" id="ticTacToeGrid">
+                                <div class="ttt-cell" onclick="makeMove(0)"></div>
+                                <div class="ttt-cell" onclick="makeMove(1)"></div>
+                                <div class="ttt-cell" onclick="makeMove(2)"></div>
+                                <div class="ttt-cell" onclick="makeMove(3)"></div>
+                                <div class="ttt-cell" onclick="makeMove(4)"></div>
+                                <div class="ttt-cell" onclick="makeMove(5)"></div>
+                                <div class="ttt-cell" onclick="makeMove(6)"></div>
+                                <div class="ttt-cell" onclick="makeMove(7)"></div>
+                                <div class="ttt-cell" onclick="makeMove(8)"></div>
+                            </div>
+                            <p id="tttStatus" style="margin-top: 10px; font-weight: bold; color: #e91e63;">Your Turn!
+                                (❤️)</p>
+                            <button class="btn btn-secondary" style="margin-top: 15px; width: 100%;"
+                                onclick="resetTicTacToe()">🔄 Reset Board</button>
+                        </div>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-primary" style="width: 100%;" onclick="renewVows()">💍 Renew Our
+                            Vows</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MESSAGES SECTION -->
+            <div class="section-content" id="messages-section">
+                <div class="love-message">
+                    <h2 style="color: #e91e63; text-align: center; margin-bottom: 30px;">💌 Messages & Surprises</h2>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-primary" style="width: 100%;" onclick="openMemoryJar()">🎀 Open My Love
+                            Jar</button>
+                        <p style="text-align: center; color: #999; margin-top: 10px; font-size: 0.9rem;">Random sweet
+                            messages from my heart</p>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-secondary" style="width: 100%;" onclick="showSurprise()">🎁 A Surprise
+                            for You</button>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-primary" style="width: 100%;" onclick="showAnniversaryWishes()">💝
+                            Anniversary Wishes</button>
+                    </div>
+
+                    <div class="romantic-section">
+                        <button class="btn btn-secondary" style="width: 100%; margin-bottom: 20px;"
+                            onclick="celebrateYes()">💕 Your Love Response</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MUSIC PLAYER -->
+        <div class="music-player-full">
+            <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</button>
+            <div class="music-status" id="musicStatus">Click to play romantic music</div>
+        </div>
+    </div>
+
+    <!-- MODALS -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('galleryModal')">&times;</span>
+            <div class="heart-icon">📸</div>
+            <h2 class="modal-title">Our Beautiful Memories</h2>
+            <p class="modal-text">
+                Every moment with you creates a precious memory.
+                These are the moments that make my heart skip a beat:
+            </p>
+            <ul style="text-align: left; color: #666; font-size: 1rem; line-height: 2;">
+                <li>💑 The day I met you - my life changed forever</li>
+                <li>💍 The day I proposed - your yes made me the happiest man</li>
+                <li>💒 Our wedding day - the most beautiful day of my life</li>
+                <li>🌍 Every adventure we take together</li>
+                <li>🌙 Every quiet moment by your side</li>
+            </ul>
+            <button class="modal-btn" onclick="closeModal('galleryModal')">Close</button>
+        </div>
+    </div>
+
+    <div id="surpriseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('surpriseModal')">&times;</span>
+            <div class="heart-icon">🎁</div>
+            <h2 class="modal-title">Your Surprise!</h2>
+            <p class="modal-text">
+                My dearest,
+            </p>
+            <p class="modal-text" style="font-style: italic;">
+                "You deserve the world, but since I can only give you my heart,
+                please accept my eternal love, devotion, and commitment.
+                You are my forever. I promise to love you more each day."
+            </p>
+            <p class="modal-text" style="font-size: 1.3rem; color: #e91e63; margin-top: 20px;">
+                💕 Will you be mine forever? 💕
+            </p>
+            <button class="modal-btn" onclick="celebrateYes()">Yes, Forever!</button>
+        </div>
+    </div>
+
+    <!-- LOVE LETTER MODAL -->
+    <div id="loveLetterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loveLetterModal')">&times;</span>
+            <div class="heart-icon">💌</div>
+            <h2 class="modal-title">A Letter for You</h2>
+            <div class="love-letter">
+                <p class="love-letter-text" id="loveLetter"></p>
+            </div>
+            <button class="modal-btn" style="margin-top: 20px;" onclick="closeModal('loveLetterModal')">Close
+                Letter</button>
+        </div>
+    </div>
+
+    <!-- LOVE QUIZ MODAL -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('quizModal')">&times;</span>
+            <div class="heart-icon">🎮</div>
+            <h2 class="modal-title">Love Quiz! 💕</h2>
+            <div id="quizContent">
+                <p id="quizQuestion" style="color: #333; font-size: 1.2rem; margin: 20px 0; font-weight: 600;"></p>
+                <div id="quizAnswers" style="display: flex; flex-direction: column; gap: 10px;">
+                </div>
+            </div>
+            <div id="quizResult" style="display: none; text-align: center; margin-top: 20px;">
+                <p id="quizResultText"
+                    style="color: #e91e63; font-size: 1.3rem; font-weight: bold; margin-bottom: 15px;"></p>
+                <button class="modal-btn" onclick="closeModal('quizModal')">Close Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMORY JAR MODAL -->
+    <div id="jarModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('jarModal')">&times;</span>
+            <div class="heart-icon">🎀</div>
+            <h2 class="modal-title">My Love Jar</h2>
+            <div class="jar-container">
+                <p id="jarMessage"
+                    style="color: #333; font-size: 1.1rem; line-height: 1.8; margin: 30px 0; font-style: italic;"></p>
+                <button class="modal-btn" style="margin-top: 15px; width: 100%;" onclick="nextJarMessage()">🎁 Next
+                    Message</button>
+                <button class="modal-btn" style="margin-top: 10px; width: 100%;" onclick="closeModal('jarModal')">Close
+                    Jar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ANNIVERSARY WISHES MODAL -->
+    <div id="anniversaryWishesModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('anniversaryWishesModal')">&times;</span>
+            <div class="heart-icon">💝</div>
+            <h2 class="modal-title">3 Years of Love</h2>
+            <div
+                style="text-align: left; color: #333; font-size: 1rem; line-height: 1.8; max-height: 400px; overflow-y: auto;">
+                <p style="margin-bottom: 15px;"><strong>💑 A Beautiful 3 Years:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>✨ The brightest smile I wake up to every morning</li>
+                    <li>💕 The warmest hand to hold through life</li>
+                    <li>👨‍👩‍👧‍👦 Building the most beautiful life together</li>
+                    <li>🌟 More love than any heart can contain</li>
+                    <li>😊 Endless laughter and inside jokes</li>
+                    <li>🏠 A home wherever you are</li>
+                    <li>💪 Support through every challenge</li>
+                    <li>🎉 Celebrations of every tiny victory</li>
+                </ul>
+            </div>
+            <button class="modal-btn" style="margin-top: 15px; width: 100%;"
+                onclick="closeModal('anniversaryWishesModal')">Close</button>
+        </div>
+    </div>
+
+    <!-- 2 YEARS STORY MODAL -->
+    <div id="twoYearsStoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('twoYearsStoryModal')">&times;</span>
+            <div class="heart-icon">📖</div>
+            <h2 class="modal-title">Our 3 Year Journey</h2>
+            <div
+                style="text-align: left; color: #333; font-size: 1rem; line-height: 1.8; max-height: 400px; overflow-y: auto;">
+                <p><strong style="color: #e91e63;">Year 1: The Foundation</strong></p>
+                <p style="margin-bottom: 20px;">We began our journey with endless love, countless adventures, and the
+                    promise of forever. Every moment was magical.</p>
+
+                <p><strong style="color: #e91e63;">Year 2: Growing Together</strong></p>
+                <p style="margin-bottom: 20px;">Our love deepened with shared dreams, beautiful memories, and moments
+                    that will last a lifetime. We've built something truly special.</p>
+
+                <p><strong style="color: #e91e63;">Year 3: Forever Together</strong></p>
+                <p style="margin-bottom: 20px;">Three beautiful years of unwavering love, laughter, and endless moments
+                    of joy. Our bond grows stronger each day, and I can't wait for all the adventures still to come.</p>
+
+                <p style="color: #e91e63; font-weight: bold; font-size: 1.1rem;">The Best is Yet to Come!</p>
+            </div>
+            <button class="modal-btn" style="margin-top: 15px; width: 100%;"
+                onclick="closeModal('twoYearsStoryModal')">Close</button>
+        </div>
+    </div>
+
+    <!-- VOW RENEWAL MODAL -->
+    <div id="vowRenewalModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('vowRenewalModal')">&times;</span>
+            <div class="heart-icon">💍</div>
+            <h2 class="modal-title">I Promise...</h2>
+            <div
+                style="text-align: center; color: #333; font-size: 1rem; line-height: 2; max-height: 400px; overflow-y: auto;">
+                <p style="margin: 15px 0;">💕 To love you more each day</p>
+                <p style="margin: 15px 0;">💕 To hold your hand through everything</p>
+                <p style="margin: 15px 0;">💕 To make you smile every single day</p>
+                <p style="margin: 15px 0;">💕 To support your dreams and goals</p>
+                <p style="margin: 15px 0;">💕 To cherish every moment with you</p>
+                <p style="margin: 15px 0;">💕 To be your rock and your softness</p>
+                <p style="margin: 15px 0;">💕 To laugh together through the good times</p>
+                <p style="margin: 15px 0;">💕 To stand beside you through challenges</p>
+                <p style="margin: 25px 0; font-size: 1.2rem; color: #e91e63; font-weight: bold;">Forever & Always 💕</p>
+            </div>
+            <button class="modal-btn" style="margin-top: 15px; width: 100%;" onclick="celebrateVowRenewal()">💍 I Renew
+                My Vows!</button>
+            <button class="modal-btn" style="margin-top: 10px; width: 100%;"
+                onclick="closeModal('vowRenewalModal')">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
